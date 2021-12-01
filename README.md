@@ -16,5 +16,4 @@ Unfortunately, Newegg has a different system for storing information for their i
 	<h3>Why Share Project?</h3>
 	Although this project is very simple, I choose to share this because it has some level of functionality. It’s not some calculator project that isn’t touched after it is finished. I really like pursuing projects that have at least some level of usefulness.
 	<h3>Project In Use</h3>
-	[![Newegg Inventory Checker Demo](http://img.youtube.com/vi/4X8lWG-hNKA&ab/0.jpg)](http://www.youtube.com/watch?v=4X8lWG-hNKA&ab "Newegg Inventory Checker Demo
-")
+	[![Newegg Inventory Checker Demo]<iframe width="560" height="315" src="https://www.youtube.com/embed/4X8lWG-hNKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
