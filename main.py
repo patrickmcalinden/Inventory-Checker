@@ -53,7 +53,7 @@ def isinStock():
 
                 print("Item is in stock!" + modelnumber)
                 print('https://secure.newegg.com/Shopping/AddToCart.aspx?Submit=ADD&ItemList='+ modelnumber)
-                notification = Webhook("https://discord.com/api/webhooks/876962358185033758/7L0gKUgGcq1jeDNHs3MNtnX3mbezXWFVY-tbch10iToUxCceagAuzzt4d8dCkmRhDgNe")
+                notification = Webhook("Discord Bot Token Goes Here")
                 myEmbed = discord.Embed(title='' + title, description='One Just Popped in Stock!', color=0x8c00ff)
                 myEmbed.add_field(name='Product Link',value= 'https://www.newegg.com/' + urlKeyword + '/p/' + modelnumber,inline=False)
                 myEmbed.add_field(name='Add To Cart Link',value='https://secure.newegg.com/Shopping/AddToCart.aspx?Submit=ADD&ItemList=' + modelnumber,inline=False)
