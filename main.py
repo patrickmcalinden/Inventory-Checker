@@ -13,16 +13,17 @@ colorama.init(autoreset= True)
 client = commands.Bot(command_prefix= '.')
 
 
-
-
 def isinStock():
 
     while x == 0:
 
+        #gets dict keys and values
         for modelnumber, lastnum in itemList.items():
+            #retrieve and parse JSON data for each item
             response = requests.get('https://www.newegg.com/product/api/ProductRealtime?ItemNumber='+ lastnum + '&RecommendItem=&BestSellerItemList=&IsVATPrice=true')
             jsonlist = json.loads(response.text)['MainItem']
 
+            #handle any possible errors and get imoprtant info
             try:
 
                 print(jsonlist['Instock'] , jsonlist['Stock'] ,  jsonlist['StockForCombo'])
@@ -34,13 +35,10 @@ def isinStock():
                 pictureName = jsonlist['Image']['ItemCellImageName']
 
                 link = 'http://c1.neweggimages.com/ProductImageOriginal/'+ pictureName
+            #Could be more specific (ie. use 'type error' but sometimes random errors occur)
             except:
 
                 print(Fore.RED + "Whoops Encountered and error!")
-
-
-
-
 
 
             while jsonlist['Stock'] == 0:
@@ -50,12 +48,12 @@ def isinStock():
                 break
 
 
-
+            #when stock is seen / discord embed is sent to channel
             else:
 
                 print("Item is in stock!" + modelnumber)
                 print('https://secure.newegg.com/Shopping/AddToCart.aspx?Submit=ADD&ItemList='+ modelnumber)
-                notification = Webhook("https://discord.com/api/webhooks/788347459939991553/8dCS1ZgyYx-z9hjV1NC7wHsz5OBSgc4g_AeHDlCCZR_mkj2xHe8I96SKA-EN10HcdRvF")
+                notification = Webhook("https://discord.com/api/webhooks/876962358185033758/7L0gKUgGcq1jeDNHs3MNtnX3mbezXWFVY-tbch10iToUxCceagAuzzt4d8dCkmRhDgNe")
                 myEmbed = discord.Embed(title='' + title, description='One Just Popped in Stock!', color=0x8c00ff)
                 myEmbed.add_field(name='Product Link',value= 'https://www.newegg.com/' + urlKeyword + '/p/' + modelnumber,inline=False)
                 myEmbed.add_field(name='Add To Cart Link',value='https://secure.newegg.com/Shopping/AddToCart.aspx?Submit=ADD&ItemList=' + modelnumber,inline=False)
@@ -65,7 +63,9 @@ def isinStock():
                 notification.send(embed=myEmbed)
                 time.sleep(5)
 
+def main():
+    print(isinStock())
 
 
-
-isinStock()
+if __name__ == '__main__':
+    main()
